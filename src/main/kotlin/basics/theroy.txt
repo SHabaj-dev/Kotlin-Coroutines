@@ -1,0 +1,42 @@
+A coroutine is a light weight way to handle asynchronous or non-blocking work in kotlin. It is a task that can pause and resume without blocking the whole thread.
+
+
+Why Not to use Thread?
+ - Heavyweight: Threads are heavyweight, each thread takes memory(~1MB stack)
+ - Slow Creation/Destructions
+ - Context switching is expensive
+ - Hard to manage(callbacks, nested logics = callback hell)
+
+
+Coroutines Vs Threads
+| Feature       | Threads             | Coroutines         |
+| ------------- | ------------------- | ------------------ |
+| Weight        | Heavy               | Lightweight        |
+| Count         | Limited (1000s max) | Millions possible  |
+| Creation cost | Expensive           | Cheap              |
+| Blocking      | Blocks thread       | Non-blocking       |
+| Readability   | Complex             | Clean & sequential |
+
+
+Note: Coroutines don't replace threads. they run on Threads but smarter.
+
+What make Coroutines powerful?
+ - Non-blocking(suspension)
+ - Lightweight
+ - Cleaner Code
+ - Structured Concurrency(If parents dies, Children also dies)
+
+Core Building Blocks:
+- runBlocking → start coroutine (main/testing)
+- launch → fire & forget
+- async → returns result
+- delay → suspend without blocking
+
+Real-world Use Cases
+- Network calls (API)
+- Database queries
+- Background tasks
+- Parallel processing
+- Android UI updates (without freezing UI)
+
+
